@@ -122,6 +122,41 @@ namespace IdentityServer
                         IdentityServerConstants.StandardScopes.Email,
                         IdentityServerConstants.StandardScopes.Phone
                     }
+                },
+
+                
+                // OpenId Connect hybrid flow client (MVC)
+                new Client
+                {
+                    ClientId = "mvcHybrid",
+                    ClientName = "MVC Hybrid Client",
+
+                    // this allows server to server api calls not in a context of a user
+                    AllowedGrantTypes = GrantTypes.Hybrid,
+
+                    ClientSecrets =
+                    {
+                        new Secret("secret".Sha256())
+                    },
+
+                    // enable/disable consent with this flag
+                    RequireConsent = false,
+
+                    // where to redirect to after login
+                    RedirectUris = { "http://localhost:5003/signin-oidc" },
+
+                    // where to redirect to after logout
+                    PostLogoutRedirectUris = { "http://localhost:5003/signout-callback-oidc" },
+
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    },
+
+                    // permits requesting refresh tokens for long lived API access
+                    AllowOfflineAccess = true
                 }
             };
         }
