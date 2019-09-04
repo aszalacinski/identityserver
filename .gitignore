@@ -350,3 +350,7 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+
+# IdentityServer
+tempkey.rsa
+identityserver4_log.txt
