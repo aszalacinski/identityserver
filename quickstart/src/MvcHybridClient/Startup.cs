@@ -45,7 +45,7 @@ namespace MvcHybridClient
 
                     options.ClientId = "mvcHybrid";
                     // matches the secret defined in the IDServer Client for mvcHybrid
-                    options.ClientSecret = "secret";
+                    options.ClientSecret = "511536EF-F270-4058-80CA-1C89C192F623";
                     // this basically means "use hybrid flow"
                     options.ResponseType = "code id_token";
 
