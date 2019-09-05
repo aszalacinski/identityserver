@@ -157,6 +157,27 @@ namespace IdentityServer
 
                     // permits requesting refresh tokens for long lived API access
                     AllowOfflineAccess = true
+                },
+
+                // JavaScript Client
+                new Client
+                {
+                    ClientId = "js",
+                    ClientName = "JavaScript Client",
+                    AllowedGrantTypes = GrantTypes.Code,
+                    RequirePkce = true,
+                    RequireClientSecret = false,
+
+                    RedirectUris =           { "http://localhost:5004/callback.html" },
+                    PostLogoutRedirectUris = { "http://localhost:5004/index.html" },
+                    AllowedCorsOrigins =     { "http://localhost:5004" },
+
+                    AllowedScopes =
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile,
+                        "api1"
+                    }
                 }
             };
         }
